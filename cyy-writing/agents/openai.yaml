@@ -1,0 +1,8 @@
+interface:
+  display_name: "cyy-writing"
+  short_description: "微信公众号文章创作工作流"
+  brand_color: "#07C160"
+  default_prompt: "Use $cyy-writing to turn this reference article into a polished WeChat Official Account article."
+
+policy:
+  allow_implicit_invocation: true

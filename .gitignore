@@ -1,0 +1,19 @@
+.DS_Store
+Thumbs.db
+
+# Local runtime and editor files
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+
+# Generated output
+outputs/
+work/
+公众号文章/
+
+# Archives and temporary packages
+*.zip
+*.tar.gz
+*.skill
