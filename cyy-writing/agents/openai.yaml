@@ -1,8 +1,8 @@
 interface:
   display_name: "cyy-writing"
-  short_description: "微信公众号文章创作工作流"
+  short_description: "主题调研与模板改写，先交图片/GIF Markdown，定稿后排版归档"
   brand_color: "#07C160"
-  default_prompt: "Use $cyy-writing to turn this reference article into a polished WeChat Official Account article."
+  default_prompt: "Use $cyy-writing to draft a CYY-style WeChat article from my topic or template, deliver Markdown with images and GIFs, and wait for my edits before generating HTML."
 
 policy:
   allow_implicit_invocation: true

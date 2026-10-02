@@ -1,15 +1,17 @@
 # cyy-writing
 
-> A Codex/OpenClaw skill for turning reference articles into polished WeChat Official Account drafts.
+> A Codex/OpenClaw skill for researching topics or rewriting templates into editable WeChat articles with images and GIFs.
 
 `cyy-writing` creates CYY 小陈风格的微信公众号文章 for readers who use AI for coding and everyday work. It helps readers decide whether a tool is worth trying and how to start, with verified sources, concrete examples, local images and GIFs, and inline HTML output.
 
 ## Highlights
 
 - **Direct first delivery**: full article in chat plus a matching Markdown document with available images.
-- **Reference-driven drafting**: starts from an article or source material and adapts its structure, voice, and audience fit.
+- **Two drafting routes**: research a topic from reliable sources, or rewrite an uploaded template in CYY 小陈 style.
+- **Markdown first**: deliver the article with local images/GIFs and a portable ZIP, then wait for user edits before generating HTML.
+- **Notion archive**: store editable article content, media and stage-specific attachments under an authorized parent page; later update the same page.
 - **Official-source research**: verifies new-model announcements, capabilities, pricing and access on the vendor's website; collects useful benchmark and pricing screenshots.
-- **X case research**: checks original posts for coding and office-work demos, user experiences and failures, then embeds relevant images or GIF excerpts in the article.
+- **X case research and visible results**: required for both AI drafting routes; checks original posts, embeds actual results or GIF excerpts in relevant sections, explains what to observe, and labels uncertain model identities and missing evidence before delivery.
 - **Practical decisions**: explains what a result is suitable for, what needs checking, and a first task the reader can try.
 - **WeChat-safe HTML template**: uses inline styles that survive the WeChat editor better than external CSS or class-based styling.
 - **Humanized Chinese copy**: nudges the draft away from stiff AI prose and toward a conversational public-account voice.
@@ -26,7 +28,9 @@
     ├── assets/
     │   └── wechat-template.html
     └── references/
-        └── workflow-examples.md
+        ├── workflow-examples.md
+        ├── x-case-workflow.md
+        └── notion-archive.md
 ```
 
 ## Install
@@ -55,20 +59,11 @@ Copy-Item -Recurse .\cyy-writing "$env:USERPROFILE\.openclaw\workspace\skills\cy
 
 ## Workflow
 
-1. **Direct draft delivery**
-   Research official sources and case materials, analyze the reference, and deliver the full CYY-style article in chat with a matching Markdown document.
-
-2. **Revise and finalize**
-   Apply feedback to the article and the same Markdown file.
-
-3. **Confirm the save location**
-   Use local directory history to determine the final output location.
-
-4. **Organize final files**
-   Save final Markdown and local media in an article directory without accumulating intermediate drafts.
-
-5. **Inline HTML layout and handoff**
-   Generate WeChat-editor-friendly HTML with inline styles, and provide file locations and a copy-paste guide.
+1. **Choose the route**: research a topic, or read and adapt the uploaded template and its media.
+2. **Deliver illustrated Markdown**: write the full article, insert verified images/GIFs, check local references and animation frames, and provide Markdown plus a ZIP preserving `images/`.
+3. **Save the current stage**: use the authorized local root and Notion destination. Name new article folders/pages `YYYY.MM.DD-公众号标题`; keep the original date for older articles. Saving alone does not trigger HTML.
+4. **Wait for edits**: update the same Markdown. If the user edits in Notion, read the current page and media before layout.
+5. **Generate HTML after finalization**: render the latest approved text and media with inline styles, verify the result, then update attachments and the same Notion page.
 
 ## Best For
 
@@ -83,8 +78,9 @@ Copy-Item -Recurse .\cyy-writing "$env:USERPROFILE\.openclaw\workspace\skills\cy
 - The skill intentionally avoids external CSS and Tailwind-style classes because the WeChat editor may strip them.
 - The bundled HTML file is a template, not a full publishing system.
 - Website and X research use the tools available in the host environment. The skill does not include a publishing service or a media downloader.
-- Personal save-directory history lives in `memory/save-roots.json` under the installed skill directory and is excluded from this repository.
-- Keep the HTML file beside its `images/` folder when moving it. Images or GIFs that the WeChat editor does not import on paste need to be uploaded separately.
+- Personal save-directory and Notion destination records live in `memory/` under the installed skill directory and are excluded from this repository. Page IDs, local paths, article files and upload credentials are not distributed with the skill.
+- Notion integration depends on the host connection and its current upload tools; local Markdown/media remain available if the connection fails.
+- Markdown needs its `images/` folder. Local HTML preferably embeds media for offline reading; when relative paths are used, preserve the folder structure. Images/GIFs that the WeChat editor does not import on paste need to be uploaded separately.
 
 ## License
 
