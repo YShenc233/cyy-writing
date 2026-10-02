@@ -17,3 +17,6 @@ work/
 *.zip
 *.tar.gz
 *.skill
+
+# Personal save-directory history
+cyy-writing/memory/
